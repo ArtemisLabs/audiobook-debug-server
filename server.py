@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, Blueprint
 APP = Flask(__name__)
 
-API = Blueprint('api', __name__)
+API = Blueprint('api', __name__, url_prefix='/api')
 
 
 TEST = {
@@ -19,6 +19,24 @@ BOOKDATA = { \
             'file':       {'integrity': "", 'length': "01:32:00",
                            'location': "file:<{LOCATIONHERE}>"},
             'available': "true"
+           }
+
+USERDATA = { \
+  "id": "507f1f77bcf86cd799439011",
+  "username": "username",
+  "passsword": "$2a$04$Cdw08X96K87OPG9u1pxkE.5QSUeeXBWh4Q3m4LHx/U4JJ3hAP2JOq",
+  "email": "joebloggs@gmail.com",
+  "name": "Joe Bloggs",
+  "integration": [{"type": "Google", "id": ""}],
+  "options": {\
+              "sync":"false",
+              "displayType": "grid",
+              "speed": "1.5",
+              "pitch": "1",
+              "timer": "00:00:00",
+              "skip": "00:00:30",
+              "volume": 75
+             }
            }
 
 @APP.route("/")
@@ -57,16 +75,9 @@ def booklibjson():
 @API.route("/userdata")
 def userjson():
     """Returns JSON user data."""
-    userdata = { \
-                'id': "507f1f77bcf86cd799439011",
-                'username': "username",
-                'password': "$2a$04$Cdw08X96K87OPG9u1pxkE.5QSUeeXBWh4Q3m4LHx/U4JJ3hAP2JOq",
-                'name': "Joe Bloggs",
-                'premium': "true"
-               }
-    returndata = userdata.copy()
-    del returndata['password']
-    return jsonify(**returndata)
+    userdata = USERDATA.copy()
+    del userdata['password']
+    return jsonify(**userdata)
 
 APP.register_blueprint(API)
 if __name__ == "__main__":
