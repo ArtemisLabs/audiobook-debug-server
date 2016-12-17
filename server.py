@@ -51,7 +51,8 @@ def json():
 def jsonname(name):
     """Returns JSON example with dynamic entries."""
     user = {
-        'name': name
+        'name': name,
+        'message': 'Hello there %s' %name
     }
     return jsonify(**user)
 
