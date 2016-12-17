@@ -48,4 +48,5 @@ Temporary Items
 
 # Dev Stuff
 
+.vscode/
 __pycache__
