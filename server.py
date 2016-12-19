@@ -24,7 +24,7 @@ BOOKDATA = { \
 USERDATA = { \
   "id": "507f1f77bcf86cd799439011",
   "username": "username",
-  "passsword": "$2a$04$Cdw08X96K87OPG9u1pxkE.5QSUeeXBWh4Q3m4LHx/U4JJ3hAP2JOq",
+  "password": "$2a$04$Cdw08X96K87OPG9u1pxkE.5QSUeeXBWh4Q3m4LHx/U4JJ3hAP2JOq",
   "email": "joebloggs@gmail.com",
   "name": "Joe Bloggs",
   "integration": [{"type": "Google", "id": ""}],
