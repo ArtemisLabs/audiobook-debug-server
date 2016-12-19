@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, Blueprint
+from flask_cors import CORS, cross_origin
 APP = Flask(__name__)
-
+CORS(APP)
 API = Blueprint('api', __name__, url_prefix='/api')
 
 
